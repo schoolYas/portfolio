@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yasamean Zaidi – Portfolio</title>
+
+  <!-- Sora font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+
+  <!-- LOADING ZIPPER OVERLAY -->
+  <div id="loader">
+    <div class="zipper-track">
+      <div class="zipper-teeth"></div>
+      <div class="zipper-head"></div>
+    </div>
+  </div>
+
+  <!-- Zipper sound (1s long) -->
+  <audio id="zip-sound" src="zipper.mp3" preload="auto"></audio>
+
+  <!-- Top bar with name + nav -->
+  <div class="top-bar">
+    <div class="site-name">YASAMEAN ZAIDI</div>
+
+    <nav class="top-nav">
+      <a href="#about" class="nav-link">ABOUT ME</a>
+      <a href="#work" class="nav-link">MY WORK</a>
+      <a href="#collab" class="nav-link">LET’S COLLAB</a>
+    </nav>
+  </div>
+
+  <!-- Main jacket content -->
+  <main class="jacket-page">
+    <div class="jacket-container">
+      <img src="jacket.png" alt="Denim jacket portfolio" class="jacket" />
+
+      <!-- Pins -->
+      <a href="nationalparks.html">
+    <img src="1.png" alt="I love national parks pin" class="pin pin1" />
+    </a>
+   <a href="plotgrid.html" >  <img src="2.png" alt="Plotgrid" class="pin pin2" /> </a>
+
+
+      <a href="bookworm.html">
+        <img src="3.png" alt="3 pin" class="pin pin3" />
+        </a>
+
+     <a href="music-snoopy.html" >  <img src="4.png" alt="Snoopy music pin" class="pin pin4" /> </a>
+
+        
+       <a href="union.html">
+    <img src="5.PNG" alt="Union" class="pin pin5" />
+    </a>
+
+      <a href="gerrymandering.html">
+        <img src="6.png" alt="Stop the gerrymandering pin" class="pin pin6" />
+        </a>
+
+    </div>
+  </main>
+
+  <!-- Simple sections so links don’t break yet -->
+<section id="about" class="about-section fade-in">
+  <h2 class="about-title">About Me</h2>
+
+  <p class="about-text">
+    hi, i’m yasamean! i’m a software creative based in los angeles, united states.
+    i’m a multi-hyphenate with a love for many things – from languages & literature to
+    data science. i’m passionate about the intersection between humanity and technology,
+    using data to tell stories that connect us and reveal the innate details of simple life.
+  </p>
+
+  <p class="about-text">
+    flip me inside and out and i'm both logical & creative one. i’m gearing up to pursue a
+    master’s in data science while also being a gis researcher.
+  </p>
+
+  <p class="about-text">
+    when i’m not coding, you’ll find me journaling, drinking strawberry matcha,
+    union organizing, speed puzzling, or sharing local businesses on google maps
+    with my google maps community. ultimately, i hope to help build a space that feels
+    welcoming, warm, and nostalgic.
+  </p>
+</section>
+
+
+  <section id="work" class="work-section fade-in">
+  <h2 class="work-title">My Work</h2>
+
+  <p class="work-text">
+    I design projects that live at the intersection of <strong>code, story, and place</strong> –
+    from data-driven civic tools to cozy, character-filled interfaces. My portfolio includes:
+  </p>
+
+  <ul class="work-list">
+    <li>
+      <strong>Civic & data projects</strong> like FairMap and PlotGrid that use data science,
+      GIS, and visualization to make complex systems feel human and understandable.
+    </li>
+    <li>
+      <strong>Playful web experiences</strong> inspired by pins, music, books, and national parks –
+      small worlds you can click into and explore.
+    </li>
+    <li>
+      <strong>Writing- and organizing-adjacent tools</strong> that support union work, storytelling,
+      and community-building.
+    </li>
+  </ul>
+
+  <p class="work-text">
+    Each pin on the jacket is a doorway into one of these projects. <strong>Click any pin</strong>
+    to open a detailed case study and see how I think through design, research, and implementation.
+  </p>
+</section>
+
+  <section id="collab" class="collab-section fade-in">
+<h2 class="collab-title">Let’s Collaborate on Your Next Project</h2>
+
+  <p class="collab-text">
+    I’d love to work with you — whether you’re building something creative, technical,
+    or beautifully in-between.
+  </p>
+
+  <div class="collab-contact">
+    <p><strong>Email:</strong> <a href="mailto:yzaididozan@gmail.com">yzaididozan@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:2107276707">210-727-6707</a></p>
+  </div>
+
+  </section>
+
+  <!-- JS: autoplay zipper animation + try to play sound -->
+  <script>
+    window.addEventListener('load', function () {
+      const loader = document.getElementById('loader');
+      const zipSound = document.getElementById('zip-sound');
+
+      if (zipSound) {
+        zipSound.volume = 0.8;
+        zipSound.currentTime = 0;
+        zipSound.play().catch(() => {
+          // If browser blocks autoplay, we just skip the sound (no error)
+        });
+      }
+
+      if (loader) {
+        // Let the zipper animation run (1.8s), then fade out
+        setTimeout(() => {
+          loader.classList.add('loaded');
+        }, 1800);
+      }
+    });
+  </script>
+  <script>
+  const fadeEls = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+
+
+  <footer class="footer">
+  stitched together by yasamean with ♥ in los angeles
+</footer>
+
+</body>
+</html>
+
